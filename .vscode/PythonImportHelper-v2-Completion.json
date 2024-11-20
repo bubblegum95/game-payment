@@ -1,0 +1,70 @@
+[
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "items",
+        "importPath": "controllers.items",
+        "description": "controllers.items",
+        "isExtraImport": true,
+        "detail": "controllers.items",
+        "documentation": {}
+    },
+    {
+        "label": "read_items",
+        "kind": 2,
+        "importPath": "controllers.items",
+        "description": "controllers.items",
+        "peekOfCode": "def read_items(item_id: int, q: Union[str, None] = None):\n  return {\"item id\": item_id, \"q\": q}",
+        "detail": "controllers.items",
+        "documentation": {}
+    },
+    {
+        "label": "items",
+        "kind": 5,
+        "importPath": "controllers.items",
+        "description": "controllers.items",
+        "peekOfCode": "items = APIRouter(\n  tags = [\"items\"],\n  responses = {404: {\"description\": \"Not Found\"}},\n  prefix=\"/items\"\n)\n@items.get(\"/{item_id}\")\ndef read_items(item_id: int, q: Union[str, None] = None):\n  return {\"item id\": item_id, \"q\": q}",
+        "detail": "controllers.items",
+        "documentation": {}
+    },
+    {
+        "label": "read_root",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def read_root():\n  return {\"Hello\": \"World\"}",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "app = FastAPI() \napp.include_router(items)\n@app.get(\"/\")\ndef read_root():\n  return {\"Hello\": \"World\"}",
+        "detail": "main",
+        "documentation": {}
+    }
+]
