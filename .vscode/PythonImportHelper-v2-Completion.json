@@ -8,6 +8,30 @@
         "documentation": {}
     },
     {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "FastAPI",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -24,47 +48,266 @@
         "documentation": {}
     },
     {
-        "label": "items",
-        "importPath": "controllers.items",
-        "description": "controllers.items",
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
         "isExtraImport": true,
-        "detail": "controllers.items",
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "UserService",
+        "importPath": "services.users_service",
+        "description": "services.users_service",
+        "isExtraImport": true,
+        "detail": "services.users_service",
+        "documentation": {}
+    },
+    {
+        "label": "SignUpDto",
+        "importPath": "src.dtos.sign_up_dto",
+        "description": "src.dtos.sign_up_dto",
+        "isExtraImport": true,
+        "detail": "src.dtos.sign_up_dto",
+        "documentation": {}
+    },
+    {
+        "label": "SignUpDto",
+        "importPath": "src.dtos.sign_up_dto",
+        "description": "src.dtos.sign_up_dto",
+        "isExtraImport": true,
+        "detail": "src.dtos.sign_up_dto",
+        "documentation": {}
+    },
+    {
+        "label": "SignUpDto",
+        "importPath": "src.dtos.sign_up_dto",
+        "description": "src.dtos.sign_up_dto",
+        "isExtraImport": true,
+        "detail": "src.dtos.sign_up_dto",
+        "documentation": {}
+    },
+    {
+        "label": "UserRepository",
+        "importPath": "src.repositories.users_repository",
+        "description": "src.repositories.users_repository",
+        "isExtraImport": true,
+        "detail": "src.repositories.users_repository",
+        "documentation": {}
+    },
+    {
+        "label": "UserRepository",
+        "importPath": "src.repositories.users_repository",
+        "description": "src.repositories.users_repository",
+        "isExtraImport": true,
+        "detail": "src.repositories.users_repository",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Model",
+        "importPath": "tortoise.models",
+        "description": "tortoise.models",
+        "isExtraImport": true,
+        "detail": "tortoise.models",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "tortoise",
+        "description": "tortoise",
+        "isExtraImport": true,
+        "detail": "tortoise",
+        "documentation": {}
+    },
+    {
+        "label": "Tortoise",
+        "importPath": "tortoise",
+        "description": "tortoise",
+        "isExtraImport": true,
+        "detail": "tortoise",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "src.models.user_model",
+        "description": "src.models.user_model",
+        "isExtraImport": true,
+        "detail": "src.models.user_model",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "bcrypt",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "bcrypt",
+        "description": "bcrypt",
+        "detail": "bcrypt",
+        "documentation": {}
+    },
+    {
+        "label": "asynccontextmanager",
+        "importPath": "contextlib",
+        "description": "contextlib",
+        "isExtraImport": true,
+        "detail": "contextlib",
+        "documentation": {}
+    },
+    {
+        "label": "items",
+        "importPath": "src.controllers.items",
+        "description": "src.controllers.items",
+        "isExtraImport": true,
+        "detail": "src.controllers.items",
+        "documentation": {}
+    },
+    {
+        "label": "users",
+        "importPath": "src.controllers.user_controller",
+        "description": "src.controllers.user_controller",
+        "isExtraImport": true,
+        "detail": "src.controllers.user_controller",
         "documentation": {}
     },
     {
         "label": "read_items",
         "kind": 2,
-        "importPath": "controllers.items",
-        "description": "controllers.items",
+        "importPath": "src.controllers.items",
+        "description": "src.controllers.items",
         "peekOfCode": "def read_items(item_id: int, q: Union[str, None] = None):\n  return {\"item id\": item_id, \"q\": q}",
-        "detail": "controllers.items",
+        "detail": "src.controllers.items",
         "documentation": {}
     },
     {
         "label": "items",
         "kind": 5,
-        "importPath": "controllers.items",
-        "description": "controllers.items",
-        "peekOfCode": "items = APIRouter(\n  tags = [\"items\"],\n  responses = {404: {\"description\": \"Not Found\"}},\n  prefix=\"/items\"\n)\n@items.get(\"/{item_id}\")\ndef read_items(item_id: int, q: Union[str, None] = None):\n  return {\"item id\": item_id, \"q\": q}",
-        "detail": "controllers.items",
+        "importPath": "src.controllers.items",
+        "description": "src.controllers.items",
+        "peekOfCode": "items = APIRouter(\n  prefix=\"/items\",\n  tags = [\"items\"],\n  responses = {404: {\"description\": \"Not Found\"}},\n)\n@items.get(\"/{item_id}\")\ndef read_items(item_id: int, q: Union[str, None] = None):\n  return {\"item id\": item_id, \"q\": q}",
+        "detail": "src.controllers.items",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_repository",
+        "kind": 2,
+        "importPath": "src.controllers.user_controller",
+        "description": "src.controllers.user_controller",
+        "peekOfCode": "def get_user_repository():\n  repository = UserRepository()  \n  return UserService(repository) \nusers = APIRouter(\n  prefix= \"/users\", \n  tags=[\"users\"], \n  responses={404: {\"description\": \"Not Found\"}}\n)\n@users.get(\"/\")\ndef read_users():",
+        "detail": "src.controllers.user_controller",
+        "documentation": {}
+    },
+    {
+        "label": "read_users",
+        "kind": 2,
+        "importPath": "src.controllers.user_controller",
+        "description": "src.controllers.user_controller",
+        "peekOfCode": "def read_users():\n  return {\"hello\": \"world\"}\n@users.post(\"/sign-up\")\nasync def sign_up(dto: SignUpDto, service: UserService = Depends(get_user_repository)):\n  try:\n    print(\"dto dictionary\", dto.model_dump())\n    user_acnt = await service.create(dto)\n    if user_acnt:\n      return JSONResponse(\n        content={\"message\": \"계정 생성을 완료하였습니다. 로그인 해주세요.\"},",
+        "detail": "src.controllers.user_controller",
+        "documentation": {}
+    },
+    {
+        "label": "users",
+        "kind": 5,
+        "importPath": "src.controllers.user_controller",
+        "description": "src.controllers.user_controller",
+        "peekOfCode": "users = APIRouter(\n  prefix= \"/users\", \n  tags=[\"users\"], \n  responses={404: {\"description\": \"Not Found\"}}\n)\n@users.get(\"/\")\ndef read_users():\n  return {\"hello\": \"world\"}\n@users.post(\"/sign-up\")\nasync def sign_up(dto: SignUpDto, service: UserService = Depends(get_user_repository)):",
+        "detail": "src.controllers.user_controller",
+        "documentation": {}
+    },
+    {
+        "label": "SignUpDto",
+        "kind": 6,
+        "importPath": "src.dtos.sign_up_dto",
+        "description": "src.dtos.sign_up_dto",
+        "peekOfCode": "class SignUpDto(BaseModel):\n  name: str\n  username: str\n  email: str\n  password: str\n  phone: str\n# class SignUpDto(BaseModel):\n#     name: str = Field(min_length=1, max_length=50, description=\"User's full name\")\n#     username: str = Field(min_length=3, max_length=20, description=\"Unique username\")\n#     email: str = Field(regex=r\"^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}$\", description=\"Valid email address\")",
+        "detail": "src.dtos.sign_up_dto",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "src.models.user_model",
+        "description": "src.models.user_model",
+        "peekOfCode": "class User(Model):\n    id = fields.UUIDField(pk=True, default=uuid.uuid4)\n    name = fields.CharField(max_length = 10, null = False)\n    username = fields.CharField(max_length = 10, null = False)\n    email = fields.CharField(max_length = 20, unique = True, null = False)\n    phone = fields.CharField(max_length = 11, unique = True, null = False)\n    password = fields.CharField(max_length = 100, null = False)\n    createdAt = fields.DateField(null = False)\nclass Meta:\n    table = \"user\"",
+        "detail": "src.models.user_model",
+        "documentation": {}
+    },
+    {
+        "label": "Meta",
+        "kind": 6,
+        "importPath": "src.models.user_model",
+        "description": "src.models.user_model",
+        "peekOfCode": "class Meta:\n    table = \"user\"\n    table_description = \"사용자 정보 테이블\"",
+        "detail": "src.models.user_model",
+        "documentation": {}
+    },
+    {
+        "label": "UserRepository",
+        "kind": 6,
+        "importPath": "src.repositories.users_repository",
+        "description": "src.repositories.users_repository",
+        "peekOfCode": "class UserRepository:\n  def __init__(self, repository=User):\n    self.repository = repository\n  async def exist_email(self, email: str) -> bool:\n    exist_user = await self.repository.filter(email=email).exists()\n    return exist_user\n  async def exist_phone(self, phone: str) -> bool:\n    exist_phone = await self.repository.filter(phone=phone).exists()\n    return exist_phone\n  async def create(self, dto: dict):",
+        "detail": "src.repositories.users_repository",
+        "documentation": {}
+    },
+    {
+        "label": "UserService",
+        "kind": 6,
+        "importPath": "src.services.users_service",
+        "description": "src.services.users_service",
+        "peekOfCode": "class UserService:\n  def __init__(self, repository = UserRepository):\n    self.repository = repository\n  async def exist_email(self, email: str):\n    print(email)\n    return await self.repository.exist_email(email)\n  async def exist_phone(self, phone: str):\n    print(phone)\n    return await self.repository.exist_phone(phone)\n  async def create_acnt(self, dto: dict):",
+        "detail": "src.services.users_service",
         "documentation": {}
     },
     {
         "label": "read_root",
         "kind": 2,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "def read_root():\n  return {\"Hello\": \"World\"}",
-        "detail": "main",
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "def read_root():\n    return {\"Hello\": \"World\"}\n# FastAPI startup 이벤트에서 Tortoise 초기화",
+        "detail": "src.main",
         "documentation": {}
     },
     {
         "label": "app",
         "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "app = FastAPI() \napp.include_router(items)\n@app.get(\"/\")\ndef read_root():\n  return {\"Hello\": \"World\"}",
-        "detail": "main",
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "app = FastAPI(lifespan=lifespan)\n# 라우터 등록\napp.include_router(items)\napp.include_router(users)\n@app.get(\"/\")\ndef read_root():\n    return {\"Hello\": \"World\"}\n# FastAPI startup 이벤트에서 Tortoise 초기화",
+        "detail": "src.main",
         "documentation": {}
     }
 ]

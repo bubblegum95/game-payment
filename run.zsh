@@ -1,1 +1,1 @@
-uvicorn main:app --reload
+PYTHONPATH=src uvicorn main:app --reload

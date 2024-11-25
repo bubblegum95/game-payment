@@ -2,9 +2,9 @@ from fastapi import APIRouter
 from typing import Union
 
 items = APIRouter(
+  prefix="/items",
   tags = ["items"],
   responses = {404: {"description": "Not Found"}},
-  prefix="/items"
 )
 
 @items.get("/{item_id}")
