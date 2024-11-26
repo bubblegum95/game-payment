@@ -1,3 +1,5 @@
+import datetime
+from time import timezone
 from src.models.user_model import User
 from src.dtos.sign_up_dto import SignUpDto
 
@@ -15,3 +17,6 @@ class UserRepository:
 
   async def create(self, dto: dict):
     return await self.repository.create(**dto)
+  
+  async def find(self, email: str):
+    return await self.repository.filter(email=email).first()

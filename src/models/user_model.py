@@ -9,7 +9,7 @@ class User(Model):
     email = fields.CharField(max_length = 20, unique = True, null = False)
     phone = fields.CharField(max_length = 11, unique = True, null = False)
     password = fields.CharField(max_length = 100, null = False)
-    createdAt = fields.DateField(null = False)
+    created_at = fields.DatetimeField(auto_now=True)
 
 class Meta:
     table = "user"

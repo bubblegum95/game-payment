@@ -32,6 +32,14 @@
         "documentation": {}
     },
     {
+        "label": "Response",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "FastAPI",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -104,6 +112,38 @@
         "documentation": {}
     },
     {
+        "label": "SignInDto",
+        "importPath": "src.dtos.sign_in_dto",
+        "description": "src.dtos.sign_in_dto",
+        "isExtraImport": true,
+        "detail": "src.dtos.sign_in_dto",
+        "documentation": {}
+    },
+    {
+        "label": "SignInDto",
+        "importPath": "src.dtos.sign_in_dto",
+        "description": "src.dtos.sign_in_dto",
+        "isExtraImport": true,
+        "detail": "src.dtos.sign_in_dto",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
         "label": "BaseModel",
         "importPath": "pydantic",
         "description": "pydantic",
@@ -153,6 +193,23 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
         "label": "User",
         "importPath": "src.models.user_model",
         "description": "src.models.user_model",
@@ -170,12 +227,46 @@
         "documentation": {}
     },
     {
+        "label": "traceback",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "traceback",
+        "description": "traceback",
+        "detail": "traceback",
+        "documentation": {}
+    },
+    {
         "label": "bcrypt",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "bcrypt",
         "description": "bcrypt",
         "detail": "bcrypt",
+        "documentation": {}
+    },
+    {
+        "label": "jwt",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "jwt",
+        "description": "jwt",
+        "detail": "jwt",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "starlette.config",
+        "description": "starlette.config",
+        "isExtraImport": true,
+        "detail": "starlette.config",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "starlette.config",
+        "description": "starlette.config",
+        "isExtraImport": true,
+        "detail": "starlette.config",
         "documentation": {}
     },
     {
@@ -203,20 +294,11 @@
         "documentation": {}
     },
     {
-        "label": "read_items",
-        "kind": 2,
-        "importPath": "src.controllers.items",
-        "description": "src.controllers.items",
-        "peekOfCode": "def read_items(item_id: int, q: Union[str, None] = None):\n  return {\"item id\": item_id, \"q\": q}",
-        "detail": "src.controllers.items",
-        "documentation": {}
-    },
-    {
         "label": "items",
         "kind": 5,
         "importPath": "src.controllers.items",
         "description": "src.controllers.items",
-        "peekOfCode": "items = APIRouter(\n  prefix=\"/items\",\n  tags = [\"items\"],\n  responses = {404: {\"description\": \"Not Found\"}},\n)\n@items.get(\"/{item_id}\")\ndef read_items(item_id: int, q: Union[str, None] = None):\n  return {\"item id\": item_id, \"q\": q}",
+        "peekOfCode": "items = APIRouter(\n  prefix=\"/items\",\n  tags = [\"items\"],\n  responses = {404: {\"description\": \"Not Found\"}},\n)\n# @items.get(\"/{item_id}\")\n# def read_items(item_id: int, q: Union[str, None] = None):\n#   return {\"item id\": item_id, \"q\": q}",
         "detail": "src.controllers.items",
         "documentation": {}
     },
@@ -234,7 +316,7 @@
         "kind": 2,
         "importPath": "src.controllers.user_controller",
         "description": "src.controllers.user_controller",
-        "peekOfCode": "def read_users():\n  return {\"hello\": \"world\"}\n@users.post(\"/sign-up\")\nasync def sign_up(dto: SignUpDto, service: UserService = Depends(get_user_repository)):\n  try:\n    print(\"dto dictionary\", dto.model_dump())\n    user_acnt = await service.create(dto)\n    if user_acnt:\n      return JSONResponse(\n        content={\"message\": \"계정 생성을 완료하였습니다. 로그인 해주세요.\"},",
+        "peekOfCode": "def read_users():\n  return {\"hello\": \"world\"}\n@users.post(\"/sign-up\")\nasync def sign_up(dto: SignUpDto, service: UserService = Depends(get_user_repository)):\n  try:\n    user_acnt = await service.sign_up(dto)\n    if user_acnt:\n      return JSONResponse(\n        content={\"message\": \"계정 생성을 완료하였습니다. 로그인 해주세요.\"},\n        status_code=201",
         "detail": "src.controllers.user_controller",
         "documentation": {}
     },
@@ -245,6 +327,15 @@
         "description": "src.controllers.user_controller",
         "peekOfCode": "users = APIRouter(\n  prefix= \"/users\", \n  tags=[\"users\"], \n  responses={404: {\"description\": \"Not Found\"}}\n)\n@users.get(\"/\")\ndef read_users():\n  return {\"hello\": \"world\"}\n@users.post(\"/sign-up\")\nasync def sign_up(dto: SignUpDto, service: UserService = Depends(get_user_repository)):",
         "detail": "src.controllers.user_controller",
+        "documentation": {}
+    },
+    {
+        "label": "SignInDto",
+        "kind": 6,
+        "importPath": "src.dtos.sign_in_dto",
+        "description": "src.dtos.sign_in_dto",
+        "peekOfCode": "class SignInDto(BaseModel): \n  email: str\n  password: str",
+        "detail": "src.dtos.sign_in_dto",
         "documentation": {}
     },
     {
@@ -261,7 +352,7 @@
         "kind": 6,
         "importPath": "src.models.user_model",
         "description": "src.models.user_model",
-        "peekOfCode": "class User(Model):\n    id = fields.UUIDField(pk=True, default=uuid.uuid4)\n    name = fields.CharField(max_length = 10, null = False)\n    username = fields.CharField(max_length = 10, null = False)\n    email = fields.CharField(max_length = 20, unique = True, null = False)\n    phone = fields.CharField(max_length = 11, unique = True, null = False)\n    password = fields.CharField(max_length = 100, null = False)\n    createdAt = fields.DateField(null = False)\nclass Meta:\n    table = \"user\"",
+        "peekOfCode": "class User(Model):\n    id = fields.UUIDField(pk=True, default=uuid.uuid4)\n    name = fields.CharField(max_length = 10, null = False)\n    username = fields.CharField(max_length = 10, null = False)\n    email = fields.CharField(max_length = 20, unique = True, null = False)\n    phone = fields.CharField(max_length = 11, unique = True, null = False)\n    password = fields.CharField(max_length = 100, null = False)\n    created_at = fields.DatetimeField(auto_now=True)\nclass Meta:\n    table = \"user\"",
         "detail": "src.models.user_model",
         "documentation": {}
     },
@@ -288,7 +379,7 @@
         "kind": 6,
         "importPath": "src.services.users_service",
         "description": "src.services.users_service",
-        "peekOfCode": "class UserService:\n  def __init__(self, repository = UserRepository):\n    self.repository = repository\n  async def exist_email(self, email: str):\n    print(email)\n    return await self.repository.exist_email(email)\n  async def exist_phone(self, phone: str):\n    print(phone)\n    return await self.repository.exist_phone(phone)\n  async def create_acnt(self, dto: dict):",
+        "peekOfCode": "class UserService:\n  config = Config('.env')\n  def __init__(self, repository = UserRepository):\n    self.repository = repository\n  async def exist_email(self, email: str):\n    return await self.repository.exist_email(email)\n  async def exist_phone(self, phone: str):\n    return await self.repository.exist_phone(phone)\n  async def create_acnt(self, dto: dict):\n    return await self.repository.create(dto)",
         "detail": "src.services.users_service",
         "documentation": {}
     },

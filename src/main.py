@@ -3,17 +3,22 @@ from fastapi import FastAPI
 import logging
 from src.controllers.items import items
 from src.controllers.user_controller import users
+from starlette.config import Config
 from tortoise import Tortoise
+
+config=Config('.env')
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    logging.info("App startup: Initializing DB")
     await Tortoise.init(
-        db_url="postgres://bubblegum:postgres@localhost:5432/game",
+        db_url=config("DB_URL"),
         modules={"models": ["src.models.user_model"]},
     )
+    await Tortoise.generate_schemas()
+    print("DB initialized successfully")
+    logging.info(msg="DB initialized successfully")
     yield  # 서버가 이 시점에서 실행됨
-    logging.info("App shutdown: Closing DB")
+    print("DB closed")
     await Tortoise.close_connections()
 
 app = FastAPI(lifespan=lifespan)

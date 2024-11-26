@@ -1,8 +1,9 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Response
 from fastapi.responses import JSONResponse
 from services.users_service import UserService
 from src.dtos.sign_up_dto import SignUpDto
 from src.repositories.users_repository import UserRepository
+from src.dtos.sign_in_dto import SignInDto
 
 def get_user_repository():
   repository = UserRepository()  
@@ -22,8 +23,7 @@ def read_users():
 @users.post("/sign-up")
 async def sign_up(dto: SignUpDto, service: UserService = Depends(get_user_repository)):
   try:
-    print("dto dictionary", dto.model_dump())
-    user_acnt = await service.create(dto)
+    user_acnt = await service.sign_up(dto)
 
     if user_acnt:
       return JSONResponse(
@@ -31,6 +31,20 @@ async def sign_up(dto: SignUpDto, service: UserService = Depends(get_user_reposi
         status_code=201
       )
   except Exception as error:
+    raise HTTPException(
+      status_code=400, 
+      detail=f"Sign-up failed: {str(error)}"
+    )
+
+@users.post("/sign-in")
+async def sign_in(res: Response ,dto: SignInDto, service: UserService = Depends(get_user_repository)):
+  try: 
+    token = await service.sign_in(dto)
+    res.set_cookie("authorization", f"Bearer {token}", secure=True, httponly=True, samesite=None)
+    return JSONResponse(
+      content={"message": "로그인 성공"}, status_code=200
+    )
+  except Exception as error: 
     raise HTTPException(
       status_code=400, 
       detail=f"Sign-up failed: {str(error)}"
