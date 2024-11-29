@@ -144,6 +144,22 @@
         "documentation": {}
     },
     {
+        "label": "GetItemDto",
+        "importPath": "src.dtos.get_item_dto",
+        "description": "src.dtos.get_item_dto",
+        "isExtraImport": true,
+        "detail": "src.dtos.get_item_dto",
+        "documentation": {}
+    },
+    {
+        "label": "GetItemDto",
+        "importPath": "src.dtos.get_item_dto",
+        "description": "src.dtos.get_item_dto",
+        "isExtraImport": true,
+        "detail": "src.dtos.get_item_dto",
+        "documentation": {}
+    },
+    {
         "label": "logging",
         "kind": 6,
         "isExtraImport": true,
@@ -234,6 +250,14 @@
         "documentation": {}
     },
     {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
         "label": "Field",
         "importPath": "pydantic",
         "description": "pydantic",
@@ -258,11 +282,27 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "uuid",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "uuid",
         "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "UUID",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
         "detail": "uuid",
         "documentation": {}
     },
@@ -417,7 +457,7 @@
         "kind": 2,
         "importPath": "src.controllers.item_controller",
         "description": "src.controllers.item_controller",
-        "peekOfCode": "def get_item_service():\n  repository = ItemRepository()\n  return ItemService(repository)\n@items.post(\"/\")\nasync def create_items(dto: CreateItemDto, service: ItemService = Depends(get_item_service)):\n  try:\n    print(dto)\n    item = await service.create_item(dto)\n    if not item:\n      raise Exception('아이템 생성 실패')",
+        "peekOfCode": "def get_item_service():\n  repository = ItemRepository()\n  return ItemService(repository)\n@items.post(\"/\")\nasync def create_items(dto: CreateItemDto, service: ItemService = Depends(get_item_service)):\n  try:\n    item = await service.create_item(dto)\n    if not item:\n      raise Exception('아이템 생성 실패')\n    return JSONResponse(",
         "detail": "src.controllers.item_controller",
         "documentation": {}
     },
@@ -485,6 +525,15 @@
         "documentation": {}
     },
     {
+        "label": "GetItemDto",
+        "kind": 6,
+        "importPath": "src.dtos.get_item_dto",
+        "description": "src.dtos.get_item_dto",
+        "peekOfCode": "class GetItemDto(BaseModel):\n  id: UUID\n  name: str\n  description: str\n  price: int\n  created_at: datetime",
+        "detail": "src.dtos.get_item_dto",
+        "documentation": {}
+    },
+    {
         "label": "SignInDto",
         "kind": 6,
         "importPath": "src.dtos.sign_in_dto",
@@ -507,7 +556,7 @@
         "kind": 6,
         "importPath": "src.models.item_model",
         "description": "src.models.item_model",
-        "peekOfCode": "class Item(Model):\n    id = fields.UUIDField(pk=True, default=uuid.uuid4)\n    name = fields.CharField(max_length = 10, null = False)\n    description = fields.CharField(max_length = 100, null = False)\n    amount = fields.IntField(null = False)\n    created_at = fields.DatetimeField(auto_now=True)\n    class Meta:\n        table = \"item\"\n        table_description = \"상품 테이블\"\n    def __str__(self):",
+        "peekOfCode": "class Item(Model):\n    id = fields.UUIDField(pk=True, default=uuid.uuid4)\n    name = fields.CharField(max_length = 10, null = False)\n    description = fields.CharField(max_length = 100, null = False)\n    price = fields.IntField(null = False)\n    created_at = fields.DatetimeField(auto_now=True)\n    class Meta:\n        table = \"item\"\n        table_description = \"상품 테이블\"\n    def __str__(self):",
         "detail": "src.models.item_model",
         "documentation": {}
     },
@@ -534,7 +583,7 @@
         "kind": 6,
         "importPath": "src.repositories.items_repository",
         "description": "src.repositories.items_repository",
-        "peekOfCode": "class ItemRepository:\n  def __init__(self, repository=Item):\n    self.repository = repository\n  async def create(self, dto: CreateItemDto):\n    return await self.repository.create(**dto.model_dump())\n  async def find_items(self, page: int, limit: int):\n    skip = (page - 1) * limit\n    items = await self.repository.all().offset(skip).limit(limit).values()\n    return list(items)\n  async def get_item(self, item_id: str):",
+        "peekOfCode": "class ItemRepository:\n  def __init__(self, repository=Item):\n    self.repository = repository\n  async def create(self, dto: CreateItemDto):\n    try:\n      return await self.repository.create(name=dto.name, description=dto.description, price=dto.price)\n    except Exception as error:\n      raise error\n  async def find_items(self, page: int, limit: int):\n    skip = (page - 1) * limit",
         "detail": "src.repositories.items_repository",
         "documentation": {}
     },
@@ -552,7 +601,7 @@
         "kind": 6,
         "importPath": "src.services.items_service",
         "description": "src.services.items_service",
-        "peekOfCode": "class ItemService:\n  def __init__(self, repository: ItemRepository):\n    self.repository = repository\n  async def create_item(self, dto: CreateItemDto):\n    return self.repository.create(dto)\n  async def get_items(self, page: int, limit: int):\n    try:\n      items = await self.repository.find_items(page, limit)\n      return items\n    except Exception as error:",
+        "peekOfCode": "class ItemService:\n  def __init__(self, repository: ItemRepository):\n    self.repository = repository\n  async def create_item(self, dto: CreateItemDto):\n    return await self.repository.create(dto)\n  async def get_items(self, page: int, limit: int):\n    try:\n      items = await self.repository.find_items(page, limit)\n      return items\n    except Exception as error:",
         "detail": "src.services.items_service",
         "documentation": {}
     },

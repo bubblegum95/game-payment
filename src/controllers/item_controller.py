@@ -4,6 +4,7 @@ from fastapi.responses import JSONResponse
 from src.services.items_service import ItemService
 from src.repositories.items_repository import ItemRepository
 from src.dtos.create_item_dto import CreateItemDto
+from src.dtos.get_item_dto import GetItemDto
 
 items = APIRouter(
   prefix="/items",
@@ -18,7 +19,6 @@ def get_item_service():
 @items.post("/")
 async def create_items(dto: CreateItemDto, service: ItemService = Depends(get_item_service)):
   try:
-    print(dto)
     item = await service.create_item(dto)
     if not item:
       raise Exception('아이템 생성 실패')
@@ -37,14 +37,12 @@ async def create_items(dto: CreateItemDto, service: ItemService = Depends(get_it
 @items.get("/")
 async def get_items(page: int, limit: int, service: ItemService = Depends(get_item_service)):
   try:
-    if limit < 10 | limit > 51:
+    if limit < 10 or limit > 51:
       raise Exception("한 번에 가져올 수 있는 아이템 개수는 10~50 입니다.")
     items = await service.get_items(page, limit)
-
-    return JSONResponse(
-      content=items,
-      status_code=200 
-    )
+    print(items)
+    return [GetItemDto(**item) for item in items]
+  
 
   except Exception as error:
     print(error)

@@ -6,7 +6,7 @@ class ItemService:
     self.repository = repository
 
   async def create_item(self, dto: CreateItemDto):
-    return self.repository.create(dto)
+    return await self.repository.create(dto)
   
   async def get_items(self, page: int, limit: int):
     try:
