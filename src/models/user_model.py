@@ -11,7 +11,10 @@ class User(Model):
     password = fields.CharField(max_length = 100, null = False)
     created_at = fields.DatetimeField(auto_now=True)
 
-class Meta:
-    table = "user"
-    table_description = "사용자 정보 테이블"
+    class Meta:
+        table = "user"
+        table_description = "사용자 정보 테이블"
+
+    def __str__(self):
+        return self.name
 

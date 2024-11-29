@@ -1,5 +1,29 @@
 [
     {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "APIRouter",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -64,6 +88,80 @@
         "documentation": {}
     },
     {
+        "label": "JSONResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "ItemService",
+        "importPath": "src.services.items_service",
+        "description": "src.services.items_service",
+        "isExtraImport": true,
+        "detail": "src.services.items_service",
+        "documentation": {}
+    },
+    {
+        "label": "ItemRepository",
+        "importPath": "src.repositories.items_repository",
+        "description": "src.repositories.items_repository",
+        "isExtraImport": true,
+        "detail": "src.repositories.items_repository",
+        "documentation": {}
+    },
+    {
+        "label": "ItemRepository",
+        "importPath": "src.repositories.items_repository",
+        "description": "src.repositories.items_repository",
+        "isExtraImport": true,
+        "detail": "src.repositories.items_repository",
+        "documentation": {}
+    },
+    {
+        "label": "CreateItemDto",
+        "importPath": "src.dtos.create_item_dto",
+        "description": "src.dtos.create_item_dto",
+        "isExtraImport": true,
+        "detail": "src.dtos.create_item_dto",
+        "documentation": {}
+    },
+    {
+        "label": "CreateItemDto",
+        "importPath": "src.dtos.create_item_dto",
+        "description": "src.dtos.create_item_dto",
+        "isExtraImport": true,
+        "detail": "src.dtos.create_item_dto",
+        "documentation": {}
+    },
+    {
+        "label": "CreateItemDto",
+        "importPath": "src.dtos.create_item_dto",
+        "description": "src.dtos.create_item_dto",
+        "isExtraImport": true,
+        "detail": "src.dtos.create_item_dto",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "traceback",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "traceback",
+        "description": "traceback",
+        "detail": "traceback",
+        "documentation": {}
+    },
+    {
         "label": "UserService",
         "importPath": "services.users_service",
         "description": "services.users_service",
@@ -72,30 +170,6 @@
         "documentation": {}
     },
     {
-        "label": "SignUpDto",
-        "importPath": "src.dtos.sign_up_dto",
-        "description": "src.dtos.sign_up_dto",
-        "isExtraImport": true,
-        "detail": "src.dtos.sign_up_dto",
-        "documentation": {}
-    },
-    {
-        "label": "SignUpDto",
-        "importPath": "src.dtos.sign_up_dto",
-        "description": "src.dtos.sign_up_dto",
-        "isExtraImport": true,
-        "detail": "src.dtos.sign_up_dto",
-        "documentation": {}
-    },
-    {
-        "label": "SignUpDto",
-        "importPath": "src.dtos.sign_up_dto",
-        "description": "src.dtos.sign_up_dto",
-        "isExtraImport": true,
-        "detail": "src.dtos.sign_up_dto",
-        "documentation": {}
-    },
-    {
         "label": "UserRepository",
         "importPath": "src.repositories.users_repository",
         "description": "src.repositories.users_repository",
@@ -128,6 +202,30 @@
         "documentation": {}
     },
     {
+        "label": "SignUpDto",
+        "importPath": "src.dtos.sign_up_dto",
+        "description": "src.dtos.sign_up_dto",
+        "isExtraImport": true,
+        "detail": "src.dtos.sign_up_dto",
+        "documentation": {}
+    },
+    {
+        "label": "SignUpDto",
+        "importPath": "src.dtos.sign_up_dto",
+        "description": "src.dtos.sign_up_dto",
+        "isExtraImport": true,
+        "detail": "src.dtos.sign_up_dto",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
         "label": "BaseModel",
         "importPath": "pydantic",
         "description": "pydantic",
@@ -157,14 +255,47 @@
         "description": "pydantic",
         "isExtraImport": true,
         "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
         "documentation": {}
     },
     {
         "label": "Model",
-        "importPath": "tortoise.models",
-        "description": "tortoise.models",
+        "importPath": "tortoise",
+        "description": "tortoise",
         "isExtraImport": true,
-        "detail": "tortoise.models",
+        "detail": "tortoise",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "tortoise",
+        "description": "tortoise",
+        "isExtraImport": true,
+        "detail": "tortoise",
+        "documentation": {}
+    },
+    {
+        "label": "Model",
+        "importPath": "tortoise",
+        "description": "tortoise",
+        "isExtraImport": true,
+        "detail": "tortoise",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "tortoise",
+        "description": "tortoise",
+        "isExtraImport": true,
+        "detail": "tortoise",
         "documentation": {}
     },
     {
@@ -184,29 +315,27 @@
         "documentation": {}
     },
     {
-        "label": "uuid",
-        "kind": 6,
+        "label": "PayEnum",
+        "importPath": "src.type.pay_enum",
+        "description": "src.type.pay_enum",
         "isExtraImport": true,
-        "importPath": "uuid",
-        "description": "uuid",
-        "detail": "uuid",
+        "detail": "src.type.pay_enum",
         "documentation": {}
     },
     {
-        "label": "datetime",
-        "kind": 6,
+        "label": "Model",
+        "importPath": "tortoise.models",
+        "description": "tortoise.models",
         "isExtraImport": true,
-        "importPath": "datetime",
-        "description": "datetime",
-        "detail": "datetime",
+        "detail": "tortoise.models",
         "documentation": {}
     },
     {
-        "label": "timezone",
-        "importPath": "time",
-        "description": "time",
+        "label": "Item",
+        "importPath": "src.models.item_model",
+        "description": "src.models.item_model",
         "isExtraImport": true,
-        "detail": "time",
+        "detail": "src.models.item_model",
         "documentation": {}
     },
     {
@@ -215,24 +344,6 @@
         "description": "src.models.user_model",
         "isExtraImport": true,
         "detail": "src.models.user_model",
-        "documentation": {}
-    },
-    {
-        "label": "logging",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "logging",
-        "description": "logging",
-        "detail": "logging",
-        "documentation": {}
-    },
-    {
-        "label": "traceback",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "traceback",
-        "description": "traceback",
-        "detail": "traceback",
         "documentation": {}
     },
     {
@@ -270,6 +381,14 @@
         "documentation": {}
     },
     {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
         "label": "asynccontextmanager",
         "importPath": "contextlib",
         "description": "contextlib",
@@ -279,10 +398,10 @@
     },
     {
         "label": "items",
-        "importPath": "src.controllers.items",
-        "description": "src.controllers.items",
+        "importPath": "controllers.item_controller",
+        "description": "controllers.item_controller",
         "isExtraImport": true,
-        "detail": "src.controllers.items",
+        "detail": "controllers.item_controller",
         "documentation": {}
     },
     {
@@ -294,20 +413,47 @@
         "documentation": {}
     },
     {
-        "label": "items",
-        "kind": 5,
-        "importPath": "src.controllers.items",
-        "description": "src.controllers.items",
-        "peekOfCode": "items = APIRouter(\n  prefix=\"/items\",\n  tags = [\"items\"],\n  responses = {404: {\"description\": \"Not Found\"}},\n)\n# @items.get(\"/{item_id}\")\n# def read_items(item_id: int, q: Union[str, None] = None):\n#   return {\"item id\": item_id, \"q\": q}",
-        "detail": "src.controllers.items",
+        "label": "get_item_service",
+        "kind": 2,
+        "importPath": "src.controllers.item_controller",
+        "description": "src.controllers.item_controller",
+        "peekOfCode": "def get_item_service():\n  repository = ItemRepository()\n  return ItemService(repository)\n@items.post(\"/\")\nasync def create_items(dto: CreateItemDto, service: ItemService = Depends(get_item_service)):\n  try:\n    print(dto)\n    item = await service.create_item(dto)\n    if not item:\n      raise Exception('아이템 생성 실패')",
+        "detail": "src.controllers.item_controller",
         "documentation": {}
     },
     {
-        "label": "get_user_repository",
+        "label": "read_items",
+        "kind": 2,
+        "importPath": "src.controllers.item_controller",
+        "description": "src.controllers.item_controller",
+        "peekOfCode": "def read_items(item_id: int, q: Union[str, None] = None):\n  return {\"item id\": item_id, \"q\": q}",
+        "detail": "src.controllers.item_controller",
+        "documentation": {}
+    },
+    {
+        "label": "items",
+        "kind": 5,
+        "importPath": "src.controllers.item_controller",
+        "description": "src.controllers.item_controller",
+        "peekOfCode": "items = APIRouter(\n  prefix=\"/items\",\n  tags = [\"items\"],\n  responses = {404: {\"description\": \"Not Found\"}},\n)\ndef get_item_service():\n  repository = ItemRepository()\n  return ItemService(repository)\n@items.post(\"/\")\nasync def create_items(dto: CreateItemDto, service: ItemService = Depends(get_item_service)):",
+        "detail": "src.controllers.item_controller",
+        "documentation": {}
+    },
+    {
+        "label": "payments",
+        "kind": 5,
+        "importPath": "src.controllers.pay_controller",
+        "description": "src.controllers.pay_controller",
+        "peekOfCode": "payments = APIRouter(\n  prefix= \"/payments\", \n  tags=[\"payments\"], \n  responses={404: {\"description\": \"Not Found\"}}\n)\n@payments.post(\"/\")\nasync def identity_verify(dto):\n  print(dto)\n  try: \n    if not dto: ",
+        "detail": "src.controllers.pay_controller",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_service",
         "kind": 2,
         "importPath": "src.controllers.user_controller",
         "description": "src.controllers.user_controller",
-        "peekOfCode": "def get_user_repository():\n  repository = UserRepository()  \n  return UserService(repository) \nusers = APIRouter(\n  prefix= \"/users\", \n  tags=[\"users\"], \n  responses={404: {\"description\": \"Not Found\"}}\n)\n@users.get(\"/\")\ndef read_users():",
+        "peekOfCode": "def get_user_service():\n  repository = UserRepository()\n  return UserService(repository)\nusers = APIRouter(\n  prefix= \"/users\", \n  tags=[\"users\"], \n  responses={404: {\"description\": \"Not Found\"}}\n)\n@users.get(\"/\")\ndef read_users():",
         "detail": "src.controllers.user_controller",
         "documentation": {}
     },
@@ -316,7 +462,7 @@
         "kind": 2,
         "importPath": "src.controllers.user_controller",
         "description": "src.controllers.user_controller",
-        "peekOfCode": "def read_users():\n  return {\"hello\": \"world\"}\n@users.post(\"/sign-up\")\nasync def sign_up(dto: SignUpDto, service: UserService = Depends(get_user_repository)):\n  try:\n    user_acnt = await service.sign_up(dto)\n    if user_acnt:\n      return JSONResponse(\n        content={\"message\": \"계정 생성을 완료하였습니다. 로그인 해주세요.\"},\n        status_code=201",
+        "peekOfCode": "def read_users():\n  return {\"hello\": \"world\"}\n@users.post(\"/sign-up\")\nasync def sign_up(dto: SignUpDto, service: UserService = Depends(get_user_service)):\n  try:\n    user_acnt = await service.sign_up(dto)\n    if user_acnt:\n      return JSONResponse(\n        content={\"message\": \"계정 생성을 완료하였습니다. 로그인 해주세요.\"},\n        status_code=201",
         "detail": "src.controllers.user_controller",
         "documentation": {}
     },
@@ -325,8 +471,17 @@
         "kind": 5,
         "importPath": "src.controllers.user_controller",
         "description": "src.controllers.user_controller",
-        "peekOfCode": "users = APIRouter(\n  prefix= \"/users\", \n  tags=[\"users\"], \n  responses={404: {\"description\": \"Not Found\"}}\n)\n@users.get(\"/\")\ndef read_users():\n  return {\"hello\": \"world\"}\n@users.post(\"/sign-up\")\nasync def sign_up(dto: SignUpDto, service: UserService = Depends(get_user_repository)):",
+        "peekOfCode": "users = APIRouter(\n  prefix= \"/users\", \n  tags=[\"users\"], \n  responses={404: {\"description\": \"Not Found\"}}\n)\n@users.get(\"/\")\ndef read_users():\n  return {\"hello\": \"world\"}\n@users.post(\"/sign-up\")\nasync def sign_up(dto: SignUpDto, service: UserService = Depends(get_user_service)):",
         "detail": "src.controllers.user_controller",
+        "documentation": {}
+    },
+    {
+        "label": "CreateItemDto",
+        "kind": 6,
+        "importPath": "src.dtos.create_item_dto",
+        "description": "src.dtos.create_item_dto",
+        "peekOfCode": "class CreateItemDto(BaseModel):\n  name: str\n  description: str\n  price: int",
+        "detail": "src.dtos.create_item_dto",
         "documentation": {}
     },
     {
@@ -348,21 +503,39 @@
         "documentation": {}
     },
     {
+        "label": "Item",
+        "kind": 6,
+        "importPath": "src.models.item_model",
+        "description": "src.models.item_model",
+        "peekOfCode": "class Item(Model):\n    id = fields.UUIDField(pk=True, default=uuid.uuid4)\n    name = fields.CharField(max_length = 10, null = False)\n    description = fields.CharField(max_length = 100, null = False)\n    amount = fields.IntField(null = False)\n    created_at = fields.DatetimeField(auto_now=True)\n    class Meta:\n        table = \"item\"\n        table_description = \"상품 테이블\"\n    def __str__(self):",
+        "detail": "src.models.item_model",
+        "documentation": {}
+    },
+    {
+        "label": "Payment",
+        "kind": 6,
+        "importPath": "src.models.pay_model",
+        "description": "src.models.pay_model",
+        "peekOfCode": "class Payment(Model):\n    id = fields.UUIDField(pk=True, default=uuid.uuid4)\n    type = fields.CharEnumField(enum_type=PayEnum)\n    price = fields.IntField(null = False)\n    created_at = fields.DatetimeField(auto_now=True)\n    class Meta:\n        table = \"payment\"\n        table_description = \"결제 내역 테이블\"\n    def __str__(self):\n        return self.name",
+        "detail": "src.models.pay_model",
+        "documentation": {}
+    },
+    {
         "label": "User",
         "kind": 6,
         "importPath": "src.models.user_model",
         "description": "src.models.user_model",
-        "peekOfCode": "class User(Model):\n    id = fields.UUIDField(pk=True, default=uuid.uuid4)\n    name = fields.CharField(max_length = 10, null = False)\n    username = fields.CharField(max_length = 10, null = False)\n    email = fields.CharField(max_length = 20, unique = True, null = False)\n    phone = fields.CharField(max_length = 11, unique = True, null = False)\n    password = fields.CharField(max_length = 100, null = False)\n    created_at = fields.DatetimeField(auto_now=True)\nclass Meta:\n    table = \"user\"",
+        "peekOfCode": "class User(Model):\n    id = fields.UUIDField(pk=True, default=uuid.uuid4)\n    name = fields.CharField(max_length = 10, null = False)\n    username = fields.CharField(max_length = 10, null = False)\n    email = fields.CharField(max_length = 20, unique = True, null = False)\n    phone = fields.CharField(max_length = 11, unique = True, null = False)\n    password = fields.CharField(max_length = 100, null = False)\n    created_at = fields.DatetimeField(auto_now=True)\n    class Meta:\n        table = \"user\"",
         "detail": "src.models.user_model",
         "documentation": {}
     },
     {
-        "label": "Meta",
+        "label": "ItemRepository",
         "kind": 6,
-        "importPath": "src.models.user_model",
-        "description": "src.models.user_model",
-        "peekOfCode": "class Meta:\n    table = \"user\"\n    table_description = \"사용자 정보 테이블\"",
-        "detail": "src.models.user_model",
+        "importPath": "src.repositories.items_repository",
+        "description": "src.repositories.items_repository",
+        "peekOfCode": "class ItemRepository:\n  def __init__(self, repository=Item):\n    self.repository = repository\n  async def create(self, dto: CreateItemDto):\n    return await self.repository.create(**dto.model_dump())\n  async def find_items(self, page: int, limit: int):\n    skip = (page - 1) * limit\n    items = await self.repository.all().offset(skip).limit(limit).values()\n    return list(items)\n  async def get_item(self, item_id: str):",
+        "detail": "src.repositories.items_repository",
         "documentation": {}
     },
     {
@@ -375,12 +548,30 @@
         "documentation": {}
     },
     {
+        "label": "ItemService",
+        "kind": 6,
+        "importPath": "src.services.items_service",
+        "description": "src.services.items_service",
+        "peekOfCode": "class ItemService:\n  def __init__(self, repository: ItemRepository):\n    self.repository = repository\n  async def create_item(self, dto: CreateItemDto):\n    return self.repository.create(dto)\n  async def get_items(self, page: int, limit: int):\n    try:\n      items = await self.repository.find_items(page, limit)\n      return items\n    except Exception as error:",
+        "detail": "src.services.items_service",
+        "documentation": {}
+    },
+    {
         "label": "UserService",
         "kind": 6,
         "importPath": "src.services.users_service",
         "description": "src.services.users_service",
         "peekOfCode": "class UserService:\n  config = Config('.env')\n  def __init__(self, repository = UserRepository):\n    self.repository = repository\n  async def exist_email(self, email: str):\n    return await self.repository.exist_email(email)\n  async def exist_phone(self, phone: str):\n    return await self.repository.exist_phone(phone)\n  async def create_acnt(self, dto: dict):\n    return await self.repository.create(dto)",
         "detail": "src.services.users_service",
+        "documentation": {}
+    },
+    {
+        "label": "PayEnum",
+        "kind": 6,
+        "importPath": "src.type.pay_enum",
+        "description": "src.type.pay_enum",
+        "peekOfCode": "class PayEnum(Enum):\n  Payment = 'payment'\n  Return = 'return'\n  Refund = 'refund'",
+        "detail": "src.type.pay_enum",
         "documentation": {}
     },
     {

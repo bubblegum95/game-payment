@@ -1,14 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException, Response
 from fastapi.responses import JSONResponse
 from services.users_service import UserService
-from src.dtos.sign_up_dto import SignUpDto
 from src.repositories.users_repository import UserRepository
 from src.dtos.sign_in_dto import SignInDto
+from src.dtos.sign_up_dto import SignUpDto
 
-def get_user_repository():
-  repository = UserRepository()  
-  return UserService(repository) 
-
+def get_user_service():
+  repository = UserRepository()
+  return UserService(repository)
 
 users = APIRouter(
   prefix= "/users", 
@@ -21,7 +20,7 @@ def read_users():
   return {"hello": "world"}
 
 @users.post("/sign-up")
-async def sign_up(dto: SignUpDto, service: UserService = Depends(get_user_repository)):
+async def sign_up(dto: SignUpDto, service: UserService = Depends(get_user_service)):
   try:
     user_acnt = await service.sign_up(dto)
 
@@ -33,11 +32,11 @@ async def sign_up(dto: SignUpDto, service: UserService = Depends(get_user_reposi
   except Exception as error:
     raise HTTPException(
       status_code=400, 
-      detail=f"Sign-up failed: {str(error)}"
+      detail=f"error: {str(error)}"
     )
 
 @users.post("/sign-in")
-async def sign_in(res: Response ,dto: SignInDto, service: UserService = Depends(get_user_repository)):
+async def sign_in(res: Response ,dto: SignInDto, service: UserService = Depends(get_user_service)):
   try: 
     token = await service.sign_in(dto)
     res.set_cookie("authorization", f"Bearer {token}", secure=True, httponly=True, samesite=None)
@@ -47,5 +46,5 @@ async def sign_in(res: Response ,dto: SignInDto, service: UserService = Depends(
   except Exception as error: 
     raise HTTPException(
       status_code=400, 
-      detail=f"Sign-up failed: {str(error)}"
+      detail=f"error: {str(error)}"
     )

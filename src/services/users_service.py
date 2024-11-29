@@ -61,8 +61,6 @@ class UserService:
       if exist_user is None:
         raise Exception("해당 계정이 존재하지 않습니다.")
       
-      # print('type:', type(exist_user.password))
-      # print("encode:", exist_user.password.encode(), type(exist_user.password.encode()))
       is_correct = bcrypt.checkpw(dto.password.encode(), exist_user.password.encode())
       if not is_correct:
         raise Exception("비밀번호가 일치하지 않습니다.")

@@ -1,7 +1,7 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 import logging
-from src.controllers.items import items
+from controllers.item_controller import items
 from src.controllers.user_controller import users
 from starlette.config import Config
 from tortoise import Tortoise
@@ -12,13 +12,14 @@ config=Config('.env')
 async def lifespan(app: FastAPI):
     await Tortoise.init(
         db_url=config("DB_URL"),
-        modules={"models": ["src.models.user_model"]},
+        modules={"models": ["src.models.user_model", "src.models.item_model"]},
     )
     await Tortoise.generate_schemas()
-    print("DB initialized successfully")
+    print("DB initialized successfully.")
     logging.info(msg="DB initialized successfully")
     yield  # 서버가 이 시점에서 실행됨
-    print("DB closed")
+
+    print("DB shutdown complete.")
     await Tortoise.close_connections()
 
 app = FastAPI(lifespan=lifespan)

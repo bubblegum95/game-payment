@@ -1,7 +1,4 @@
-import datetime
-from time import timezone
 from src.models.user_model import User
-from src.dtos.sign_up_dto import SignUpDto
 
 class UserRepository:
   def __init__(self, repository=User):
