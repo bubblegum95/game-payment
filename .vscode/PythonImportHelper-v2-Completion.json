@@ -462,15 +462,6 @@
         "documentation": {}
     },
     {
-        "label": "read_items",
-        "kind": 2,
-        "importPath": "src.controllers.item_controller",
-        "description": "src.controllers.item_controller",
-        "peekOfCode": "def read_items(item_id: int, q: Union[str, None] = None):\n  return {\"item id\": item_id, \"q\": q}",
-        "detail": "src.controllers.item_controller",
-        "documentation": {}
-    },
-    {
         "label": "items",
         "kind": 5,
         "importPath": "src.controllers.item_controller",

@@ -43,7 +43,6 @@ async def get_items(page: int, limit: int, service: ItemService = Depends(get_it
     print(items)
     return [GetItemDto(**item) for item in items]
   
-
   except Exception as error:
     print(error)
     raise HTTPException(
@@ -52,5 +51,13 @@ async def get_items(page: int, limit: int, service: ItemService = Depends(get_it
     )
   
 @items.get("/{item_id}")
-def read_items(item_id: int, q: Union[str, None] = None):
-  return {"item id": item_id, "q": q}
+async def read_items(item_id: str, service: ItemService = Depends(get_item_service)):
+  try:
+    item = await service.get_item(item_id)
+    return GetItemDto(**item)
+  
+  except Exception as error:
+    raise HTTPException(
+      status_code=400,
+      detail={"error": error}
+    )
