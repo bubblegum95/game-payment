@@ -9,7 +9,7 @@ payments = APIRouter(
   responses={404: {"description": "Not Found"}}
 )
 
-@payments.post("/")
+@payments.post("/identity-verify")
 async def identity_verify(dto):
   print(dto)
   try: 

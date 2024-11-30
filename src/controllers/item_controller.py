@@ -1,5 +1,4 @@
 from fastapi import HTTPException, Depends, APIRouter
-from typing import Union
 from fastapi.responses import JSONResponse
 from src.services.items_service import ItemService
 from src.repositories.items_repository import ItemRepository

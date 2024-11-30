@@ -72,14 +72,6 @@
         "documentation": {}
     },
     {
-        "label": "Union",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
         "label": "JSONResponse",
         "importPath": "fastapi.responses",
         "description": "fastapi.responses",
@@ -363,6 +355,22 @@
         "documentation": {}
     },
     {
+        "label": "User",
+        "importPath": "src.models.user_model",
+        "description": "src.models.user_model",
+        "isExtraImport": true,
+        "detail": "src.models.user_model",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "src.models.user_model",
+        "description": "src.models.user_model",
+        "isExtraImport": true,
+        "detail": "src.models.user_model",
+        "documentation": {}
+    },
+    {
         "label": "Model",
         "importPath": "tortoise.models",
         "description": "tortoise.models",
@@ -376,14 +384,6 @@
         "description": "src.models.item_model",
         "isExtraImport": true,
         "detail": "src.models.item_model",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "src.models.user_model",
-        "description": "src.models.user_model",
-        "isExtraImport": true,
-        "detail": "src.models.user_model",
         "documentation": {}
     },
     {
@@ -475,7 +475,7 @@
         "kind": 5,
         "importPath": "src.controllers.pay_controller",
         "description": "src.controllers.pay_controller",
-        "peekOfCode": "payments = APIRouter(\n  prefix= \"/payments\", \n  tags=[\"payments\"], \n  responses={404: {\"description\": \"Not Found\"}}\n)\n@payments.post(\"/\")\nasync def identity_verify(dto):\n  print(dto)\n  try: \n    if not dto: ",
+        "peekOfCode": "payments = APIRouter(\n  prefix= \"/payments\", \n  tags=[\"payments\"], \n  responses={404: {\"description\": \"Not Found\"}}\n)\n@payments.post(\"/identity-verify\")\nasync def identity_verify(dto):\n  print(dto)\n  try: \n    if not dto: ",
         "detail": "src.controllers.pay_controller",
         "documentation": {}
     },
@@ -556,7 +556,7 @@
         "kind": 6,
         "importPath": "src.models.pay_model",
         "description": "src.models.pay_model",
-        "peekOfCode": "class Payment(Model):\n    id = fields.UUIDField(pk=True, default=uuid.uuid4)\n    type = fields.CharEnumField(enum_type=PayEnum)\n    price = fields.IntField(null = False)\n    created_at = fields.DatetimeField(auto_now=True)\n    class Meta:\n        table = \"payment\"\n        table_description = \"결제 내역 테이블\"\n    def __str__(self):\n        return self.name",
+        "peekOfCode": "class Payment(Model):\n    id = fields.UUIDField(pk=True, default=uuid.uuid4)\n    customer_id = User.id\n    order_id = fields.CharField(unique=True, null = False)\n    type = fields.CharEnumField(enum_type=PayEnum)\n    price = fields.IntField(null = False)\n    receipt = fields.CharField(null = False)\n    created_at = fields.DatetimeField(auto_now=True)\n    class Meta:\n        table = \"payment\"",
         "detail": "src.models.pay_model",
         "documentation": {}
     },
