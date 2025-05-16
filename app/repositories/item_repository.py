@@ -1,10 +1,19 @@
-from src.models.item_model import Item
-from src.dtos.create_item_dto import CreateItemDto
-from src.dtos.get_item_dto import GetItemDto
+from app.models.item_model import Item
+from app.schemas.create_item_dto import CreateItemDto
+from app.schemas.get_item_dto import GetItemDto
 
 class ItemRepository:
+  _instance = None
+
+  def __new__(cls, *args, **kwargs):
+    if cls._instance is None:
+      cls._instance = super().__new__(cls)
+    return cls._instance
+  
   def __init__(self, repository=Item):
-    self.repository = repository
+    if not hasattr(self, 'initialized'):
+      self.repository = repository
+      self.initialized = True
 
   async def create(self, dto: CreateItemDto):
     try:

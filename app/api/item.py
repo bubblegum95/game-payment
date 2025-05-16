@@ -1,9 +1,9 @@
 from fastapi import HTTPException, Depends, APIRouter
 from fastapi.responses import JSONResponse
-from src.services.items_service import ItemService
-from src.repositories.items_repository import ItemRepository
-from src.dtos.create_item_dto import CreateItemDto
-from src.dtos.get_item_dto import GetItemDto
+from app.services.items_service import ItemService
+from app.repositories.item_repository import ItemRepository
+from app.schemas.create_item_dto import CreateItemDto
+from app.schemas.get_item_dto import GetItemDto
 
 items = APIRouter(
   prefix="/items",

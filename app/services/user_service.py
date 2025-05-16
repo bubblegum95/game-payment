@@ -1,19 +1,29 @@
 import logging
 import traceback
 import bcrypt
-import jwt
-from src.dtos.sign_up_dto import SignUpDto
-from src.repositories.users_repository import UserRepository
-from src.dtos.sign_in_dto import SignInDto
-from starlette.config import Config
+from app.models.user_model import User
+from app.schemas.sign_up_dto import SignUpDto
+from app.schemas.sign_in_dto import SignInDto
+from app.services.token_service import TokenService
+from app.repositories.user_repository import UserRepository
+
+import uuid
 
 class UserService:
-  config = Config('.env')
+  _instance = None
 
-  def __init__(self, repository = UserRepository):
-    self.repository = repository
+  def __new__(cls, *args, **kwargs):
+    if cls._instance is None:
+      cls._instance = super().__new__(cls)
+    return cls._instance
 
-  async def exist_email(self, email: str):
+  def __init__(self, repository: UserRepository | None = None, token_service: TokenService | None = None):
+    if not hasattr(self, "initialized"):
+      self.repository = repository or UserRepository()
+      self.token_service = token_service or TokenService()
+      self.initialized = True
+
+  async def exist_email(self, email: str) -> bool:
     return await self.repository.exist_email(email)
 
   async def exist_phone(self, phone: str):
@@ -22,12 +32,11 @@ class UserService:
   async def create_acnt(self, dto: dict):
     return await self.repository.create(dto)
   
-  async def find_user(self, email: str):
+  async def find_user(self, email: str) -> User | None:
     return await self.repository.find(email)
-  
-  async def create_token(self, id: str):
-    jwt_secret = self.config("JWT_SECRET")
-    return jwt.encode({"id": str(id)}, jwt_secret, algorithm="HS256")
+
+  async def update_token(self, id: uuid.UUID, token: str) -> int:
+    return await self.repository.update_token(id, token)
   
   async def sign_up(self, dto: SignUpDto):
     try:
@@ -65,7 +74,13 @@ class UserService:
       if not is_correct:
         raise Exception("비밀번호가 일치하지 않습니다.")
       
-      return await self.create_token(exist_user.id)
+      refresh_token = await self.token_service.create_token(user_id=exist_user.id, refresh=False)
+      updated = await self.update_token(id=exist_user.id, token=refresh_token)
+      if updated != 1:
+        raise Exception("토큰을 업데이트 할 수 없습니다.")
+      
+      access_token = await self.token_service.create_token(user_id=exist_user.id, refresh=True)
+      return access_token
 
     except Exception as error:
       logging.error(traceback.format_exc())

@@ -1,9 +1,18 @@
-from src.repositories.items_repository import ItemRepository
-from src.dtos.create_item_dto import CreateItemDto
+from app.repositories.item_repository import ItemRepository
+from app.schemas.create_item_dto import CreateItemDto
 
 class ItemService:
+  _instance = None
+
+  def __new__(cls, *args, **kwargs):
+    if cls._instance is None:
+      cls._instance = super().__new__(cls)
+    return cls._instance
+
   def __init__(self, repository: ItemRepository):
-    self.repository = repository
+    if not hasattr(self, 'initialized'):
+      self.repository = repository
+      self.initialized = True
 
   async def create_item(self, dto: CreateItemDto):
     return await self.repository.create(dto)
